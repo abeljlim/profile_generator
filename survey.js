@@ -14,7 +14,8 @@ const questions = [
   `Which sport is your absolute favourite? `, 
   `What is your superpower? In a few words, tell us what you are amazing at! `
 ];
-
+const answers = new Array(questions.length);
+let currQuestion = 0;
 rl.question('What\'s your name? ', (answer) => {
   // TODO: Log the answer in a database
   console.log(`Thank you for your valuable feedback: ${answer}`);
