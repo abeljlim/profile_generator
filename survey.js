@@ -37,22 +37,3 @@ const askQuestion = (questionNum, questions, answers) => {
 }
 
 askQuestion(0, questions, answers);
-
-/*
-Profile example:
-Devani loves listening to Ludovico Einaudi while coding, devouring Yak Momos for brunch, prefers Tennis over any other sport, and is amazing at dropping mad puns at inopportune times.
-*/
-
-// current version of the code, but will use the one for node v12.7
-// // basic use of the node:readline module
-// const readline = require('node:readline');
-// const { stdin: input, stdout: output } = require('node:process');
-
-// const rl = readline.createInterface({ input, output });
-
-// rl.question('What do you think of Node.js? ', (answer) => {
-//   // TODO: Log the answer in a database
-//   console.log(`Thank you for your valuable feedback: ${answer}`);
-
-//   rl.close();
-// });
