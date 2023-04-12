@@ -10,24 +10,32 @@ const questions = [
   `What's an activity you like doing? `,
   `What do you listen to while doing that? `,
   `Which meal is your favourite (eg: dinner, brunch, etc.) `,
-  `What's your favourite thing to eat for that meal?`, 
-  `Which sport is your absolute favourite? `, 
+  `What's your favourite thing to eat for that meal? `,
+  `Which sport is your absolute favourite? `,
   `What is your superpower? In a few words, tell us what you are amazing at! `
 ];
 const answers = new Array(questions.length);
 let currQuestion = 0;
-rl.question('What\'s your name? ', (answer) => {
-  // TODO: Log the answer in a database
-  console.log(`Thank you for your valuable feedback: ${answer}`);
 
+// mutual recursion to keep my code clean
+const askQuestion = (questionNum, questions, answers) => {
 
-  rl.question('What\'s an activity you like doing? ', (answer) => {
-    // TODO: Log the answer in a database
-    console.log(`Thank you for your valuable feedback: ${answer}`);
-
+  // base case: return code for profile
+  if (questionNum >= questions.length) {
+    console.log(`${answers[0]} likes to listen to ${answers[2]} while ${answers[1]}, devouring ${answers[4]} for ${answers[3]}, prefers ${answers[5]} over any other sport, and is amazing at ${answers[6]}.`);
+    // TODO: code for profile, using the answers code
     rl.close();
+    return;
+  }
+  rl.question(questions[questionNum], (answer) => {
+    answers[questionNum] = answer;
+
+    // ask next question
+    askQuestion(questionNum + 1, questions, answers);
   });
-});
+}
+
+askQuestion(0, questions, answers);
 
 /*
 Profile example:
