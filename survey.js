@@ -23,10 +23,11 @@ const askQuestion = (questionNum, questions, answers) => {
   // base case: return code for profile
   if (questionNum >= questions.length) {
     console.log(`${answers[0]} likes to listen to ${answers[2]} while ${answers[1]}, devouring ${answers[4]} for ${answers[3]}, prefers ${answers[5]} over any other sport, and is amazing at ${answers[6]}.`);
-    // TODO: code for profile, using the answers code
     rl.close();
     return;
   }
+
+  // recursive case
   rl.question(questions[questionNum], (answer) => {
     answers[questionNum] = answer;
 
